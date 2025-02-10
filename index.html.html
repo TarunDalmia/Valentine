@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Flying Kiss</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            overflow: hidden;
+            position: relative;
+            flex-direction: column;
+        }
+        .text {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .yellow {
+            color: yellow;
+        }
+        .white {
+            color: white;
+        }
+        .red {
+            color: red;
+        }
+        .stage {
+            position: relative;
+            width: 400px;
+            height: 300px;
+        }
+        .robot {
+            position: absolute;
+            width: 60px;
+            height: 100px;
+            background-color: gray;
+            border-radius: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .robot::before {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: silver;
+            border-radius: 50%;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .vr-headset {
+            position: absolute;
+            width: 40px;
+            height: 15px;
+            background-color: black;
+            top: -55px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        .robot .arm {
+            position: absolute;
+            width: 10px;
+            height: 40px;
+            background-color: gray;
+            top: 20px;
+        }
+        .robot .left-arm {
+            left: -15px;
+            transform-origin: top;
+            animation: wave 1s infinite alternate ease-in-out;
+        }
+        .robot .right-arm {
+            right: -15px;
+        }
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-30deg); }
+        }
+        .kiss {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            animation: flykiss 2s infinite;
+        }
+        @keyframes flykiss {
+            0% { transform: translate(0, 0); opacity: 1; }
+            100% { transform: translate(50px, -50px); opacity: 0; }
+        }
+        .man {
+            left: 50px;
+        }
+        .woman {
+            right: 50px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="text"><span class="yellow">INNOVATE LABS</span> <span class="white">WISHES YOU A</span> <span class="red">HAPPY VALENTINE'S DAY 💖</span></div>
+    <div class="stage">
+        <div class="robot man">
+            <div class="vr-headset"></div>
+            <div class="arm left-arm"></div>
+            <div class="arm right-arm"></div>
+            <div class="kiss">😘</div>
+        </div>
+        <div class="robot woman">
+            <div class="vr-headset"></div>
+            <div class="arm left-arm"></div>
+            <div class="arm right-arm"></div>
+            <div class="kiss">😘</div>
+        </div>
+    </div>
+</body>
+</html>
